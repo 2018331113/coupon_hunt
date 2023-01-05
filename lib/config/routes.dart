@@ -1,4 +1,5 @@
 import 'package:coupon_hunt/pages/coupon_breif.dart';
+import 'package:coupon_hunt/pages/coupon_page.dart';
 import 'package:coupon_hunt/pages/my_coupons.dart';
 import 'package:coupon_hunt/pages/profile.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ class Routes {
   static const rCouponBrief = '/coupon-brief';
   static const rCouponDBrief = '/coupon-dbrief';
   static const rProfile = '/profile';
+  static const rCouponScreen = '/coupon-screen';
   static Route<dynamic> genrateRoute(RouteSettings settings) {
     final args = settings.arguments;
     switch (settings.name) {
@@ -23,6 +25,8 @@ class Routes {
             builder: (context) => const CouponDBriefPage());
       case rProfile:
         return MaterialPageRoute(builder: (context) => ProfilePage());
+       case rCouponScreen:
+        return MaterialPageRoute(builder: (context) =>  CouponPage());
       default:
         return MaterialPageRoute(builder: (context) => const ScreenWrapper());
     }

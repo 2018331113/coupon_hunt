@@ -22,83 +22,94 @@ class MyCouponPage extends StatelessWidget {
       child: ListView.builder(
         itemCount: 10,
         itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
-            child: Stack(
-              children: [
-                CouponShape(),
-                Positioned(
-                  left: 30,
-                  top: 10,
-                  bottom: 10,
-                  right: 30,
-                  child: LayoutBuilder(builder: (context, constraints) {
-                    return Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 50,
-                          width: 80,
-                          padding: const EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Image.asset(
-                            "assets/product_logo2.png",
-                            width: 100,
-                            height: 100,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Dash(
-                          direction: Axis.vertical,
-                          length: constraints.maxHeight,
-                          dashColor: Colors.white,
-                          dashBorderRadius: 5,
-                          dashGap: 5,
-                          dashThickness: 2.5,
-                          dashLength: 8,
-                        ),
-                        SizedBox(
-                          width: 15,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "15% off",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 20,
-                              ),
-                            ),
-                            Text("Country Fresh- Detroit",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                            Spacer(),
-                            Text("Dec 1 - Dec 31",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w400,
-                                )),
-                          ],
-                        ),
-                      ],
-                    );
-                  }),
-                )
-              ],
-            ),
-          );
+          return CouponStrip();
         },
+      ),
+    );
+  }
+}
+
+class CouponStrip extends StatelessWidget {
+  const CouponStrip({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
+      child: Stack(
+        children: [
+          CouponShape(),
+          Positioned(
+            left: 30,
+            top: 10,
+            bottom: 10,
+            right: 30,
+            child: LayoutBuilder(builder: (context, constraints) {
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 50,
+                    width: 80,
+                    padding: const EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Image.asset(
+                      "assets/product_logo2.png",
+                      width: 100,
+                      height: 100,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Dash(
+                    direction: Axis.vertical,
+                    length: constraints.maxHeight,
+                    dashColor: Colors.white,
+                    dashBorderRadius: 5,
+                    dashGap: 5,
+                    dashThickness: 2.5,
+                    dashLength: 8,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "15% off",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text("Country Fresh- Detroit",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          )),
+                      Spacer(),
+                      Text("Dec 1 - Dec 31",
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w400,
+                          )),
+                    ],
+                  ),
+                ],
+              );
+            }),
+          )
+        ],
       ),
     );
   }

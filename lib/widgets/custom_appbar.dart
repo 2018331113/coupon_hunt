@@ -2,6 +2,8 @@ import 'package:coupon_hunt/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../config/routes.dart';
+
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   const CustomAppBar({
     Key? key,
@@ -58,6 +60,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         ),
         actions: [
           GestureDetector(
+            onTap: (){
+              Navigator.pushNamed(context, Routes.rCouponScreen );
+            },
             child: Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 30.0, vertical: 8),
